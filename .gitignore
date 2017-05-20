@@ -1,2 +1,5 @@
 EasyButtonDotNet/TestScriptRunner/bin/
 EasyButtonDotNet/TestScriptRunner/obj/
+EasyButtonDotNet/EasyLogListener/bin/
+EasyButtonDotNet/EasyLogListener/config.xml.nocommit
+EasyButtonDotNet/EasyLogListener/obj/
