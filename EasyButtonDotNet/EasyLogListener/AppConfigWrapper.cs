@@ -11,7 +11,7 @@ namespace EasyLogListener
     {
         public static String ParameterByEnvironment(int intEnvironmentCode)
         {
-            return ConfigurationManager.AppSettings["parameter_" + intEnvironmentCode];
+            return ConfigurationManager.AppSettings["parameters_" + intEnvironmentCode];
         }
 
         public static String WorkingDirectory

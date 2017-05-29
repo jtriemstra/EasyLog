@@ -24,6 +24,8 @@ namespace EasyLogListener
 
         static void Main(string[] args)
         {
+            
+
             using (SerialPort objSerialPort = new SerialPort("COM6", 9600))
             {
                 objSerialPort.Open();
@@ -69,7 +71,7 @@ namespace EasyLogListener
 
             if (intByte2 == STOP_SIGNAL && intByte1 >= PRE_DEV_SIGNAL && intByte1 <= PROD_SIGNAL)
             {
-                return bytBuffer[0];
+                return intByte1;
             }
             else
             {
@@ -80,9 +82,10 @@ namespace EasyLogListener
         static void PullLogs(int intEnvironmentCode)
         {
             System.Diagnostics.Debug.WriteLine(AppConfigWrapper.ShellLogin);
+            System.Diagnostics.Debug.WriteLine(intEnvironmentCode);
             DoShellCommand(AppConfigWrapper.ShellLogin);
-            DoShellCommand(AppConfigWrapper.ShellBuild);
-            DoShellCommand(AppConfigWrapper.ShellDownload);
+            DoShellCommand(AppConfigWrapper.ShellBuild + AppConfigWrapper.ParameterByEnvironment(intEnvironmentCode));
+            DoShellCommand(AppConfigWrapper.ShellDownload + AppConfigWrapper.ParameterByEnvironment(intEnvironmentCode));
         }
 
         static void DoShellCommand(String strCommand)
